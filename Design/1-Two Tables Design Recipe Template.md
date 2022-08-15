@@ -70,7 +70,6 @@ Table: peeps
 id: SERIAL
 content: text
 timestamp: timestamp
-name: text
 username: text
 ```
 
@@ -127,7 +126,14 @@ CREATE TABLE users (
 CREATE TABLE peeps (
   id SERIAL PRIMARY KEY,
   content text,
-  timestamp timestamp
+  timestamp timestamp,
+  username text,
+
+ CREATE TABLE peeps (
+  id SERIAL PRIMARY KEY,
+  content text,
+  timestamp timestamp,
+  username text,
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)
@@ -140,8 +146,8 @@ CREATE TABLE peeps (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 chitter < users_table.sql
 psql -h 127.0.0.1 chitter < peeps_table.sql
+psql -h 127.0.0.1 chitter < users_table.sql
 ```
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
